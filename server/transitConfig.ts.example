@@ -1,0 +1,94 @@
+// Copy this file to transitConfig.ts and fill in your values.
+//
+// routeId   — from RTD static GTFS routes.txt (route_id column)
+// directionId — 0 or 1 from trips.txt (direction_id column)
+// stop id   — from stops.txt (stop_id column)
+// feedUrl   — RTD GTFS-RT binary protobuf endpoint (.pb)
+
+export type StopTarget = {
+  id: string;
+  name: string;
+};
+
+export type RouteTarget = {
+  label: string;
+  routeId: string;
+  stops: StopTarget[];
+};
+
+export type CityTarget = {
+  id: "boulder" | "denver";
+  label: string;
+  directionId: number | null;
+  directionLabel: string;
+  routes: RouteTarget[];
+};
+
+export const transitConfig = {
+  feedUrl: "https://open-data.rtd-denver.com/files/gtfs-rt/rtd/TripUpdate.pb",
+  pollingIntervalMs: 60_000,
+  maxLookaheadMinutes: 120,
+  timezone: "America/Denver",
+  doneForTodayText: "No More Buses Today",
+  cities: [
+    {
+      id: "boulder",
+      label: "Boulder",
+      directionId: 1,         // direction_id from trips.txt for Boulder-bound trips
+      directionLabel: "To Boulder",
+      routes: [
+        {
+          label: "FF1",
+          routeId: "",         // route_id from routes.txt
+          stops: [{ id: "", name: "" }],
+        },
+        {
+          label: "FF5",
+          routeId: "",
+          stops: [{ id: "", name: "" }],
+        },
+        {
+          label: "AB1",
+          routeId: "",
+          stops: [
+            { id: "", name: "" },
+          ],
+        },
+        {
+          label: "AB2",
+          routeId: "",
+          stops: [
+            { id: "", name: "" },
+          ],
+        },
+        {
+          label: "AB3",
+          routeId: "",
+          stops: [
+            { id: "", name: "" },
+          ],
+        },
+      ],
+    },
+    {
+      id: "denver",
+      label: "Denver",
+      directionId: 0,         // direction_id from trips.txt for Denver-bound trips
+      directionLabel: "To Denver",
+      routes: [
+        {
+          label: "FF1",
+          routeId: "",
+          stops: [{ id: "", name: "" }],
+        },
+        {
+          label: "FF5",
+          routeId: "",
+          stops: [{ id: "", name: "" }],
+        },
+      ],
+    },
+  ] satisfies CityTarget[],
+};
+
+export type TransitConfig = typeof transitConfig;

@@ -1,0 +1,24 @@
+{
+  "label": "Bus Thing",
+  "tags": [
+    "utilityOnly"
+  ],
+  "requires": [],
+  "version": "0.11.4",
+  "requiredVersions": {
+    "server": ">=0.0.0",
+    "client": ">=0.11.2"
+  },
+  "description": "Dashboard for bus departure times",
+  "author": "Will Freeman",
+  "platforms": [
+    "mac",
+    "mac64",
+    "macarm"
+  ],
+  "repository": "",
+  "homepage": "",
+  "updateUrl": "",
+  "id": "bus-thing",
+  "template": "base"
+}
