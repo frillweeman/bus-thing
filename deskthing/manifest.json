@@ -16,7 +16,7 @@
     "mac64",
     "macarm"
   ],
-  "repository": "",
+  "repository": "https://github.com/frillweeman/bus-thing",
   "homepage": "",
   "updateUrl": "",
   "id": "bus-thing",
